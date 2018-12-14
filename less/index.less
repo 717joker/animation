@@ -1,0 +1,365 @@
+//loading开始
+html,
+body {
+    height: 100%;
+    overflow: hidden;
+    background: #f4f4f4;
+}
+
+.main-box {
+    margin: 0px auto;
+    max-width: 640px;
+    height: 100%;
+    background: white;
+    overflow: hidden;
+}
+
+.loading-box,
+.phone-box,
+.msg-box,
+.cube-box,
+.detail-box {
+    display: none;
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    margin: 0px auto;
+}
+
+.loading-box {
+    font-family: "微软雅黑";
+    font-size: 16px;
+    color: #Ffffff;
+    background: #000;
+    .loading-title {
+        position: absolute;
+        top: 50%;
+        margin-top: -2.2rem;
+        width: 100%;
+        left: 0;
+        height: 1.4rem;
+        text-align: center;
+        letter-spacing: .04rem;
+        h1 {
+            line-height: .75rem;
+            font-size: .5rem;
+        }
+        h2 {
+            margin-top: .2rem;
+            line-height: .45rem;
+            font-size: .26rem;
+        }
+    }
+    .loading-range {
+        @w : 4.60;
+        @h : .3;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: unit(-@w/2, rem);
+        margin-top: unit((-@h/2)+1, rem);
+        width: unit(@w , rem);
+        height: unit(@h , rem);
+        background: #ffffff;
+        border-radius: unit(@h/2, rem);
+        .run {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: unit(@h, rem);
+            width: 0;
+            background: -webkit-linear-gradient(left bottom, #5cB85C 0%, #5cB85C 25%, #74C274 25%, #74C274 50%, #5cB85C 50%, #5cB85C 75%, #74C274 75%, #74C274 100%);
+            background: linear-gradient(left bottom, #5cB85C 0%, #5cB85C 25%, #74C274 25%, #74C274 50%, #5cB85C 50%, #5cB85C 75%, #74C274 75%, #74C274 100%);
+            background-size: unit(@h , rem);
+            border-radius: unit(@h/2, rem);
+            transition: .3s;
+            -webkit-animation: loadTransform 1s linear infinite 0s;
+            animation: loadTransform 1s linear infinite 0s;
+        }
+    }
+}
+
+@keyframes loadTransform {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 0 -.3rem;
+    }
+}
+
+//loading结束
+//phone开始
+
+
+.clearfix:after {
+    content: ".";   
+    display: block;  
+    clear: both;    
+    visibility: hidden;     
+    height: 0;    
+    font-size:0;    
+}
+
+.phone-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: url(../img/timg.jpg) repeat-y;
+}
+
+.phone-bg,
+.phone-content {
+    width: 100%;
+    min-height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding-bottom: .7rem;
+}
+
+.phone-content {
+    background: rgba(7,17,27,0.8);
+    color: #ffffff;
+    font-size: 0.36rem;
+    text-align: center;
+}
+
+.phone-close {
+    position: relative;
+    text-align: center;
+    font-size: 0.36rem;
+    margin-top: -.7rem;
+    color: white;
+}
+
+
+.phone-img{
+    position: relative;
+}
+.phone-img,.img-modal{
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    margin: 0.1rem auto;
+}
+.phone-img img{
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.phone-img .img-modal{
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    z-index: 12;
+    background: rgba(0 0 0 0.5);
+}
+.img-modal .move{
+    position: absolute;
+    left: -3px;
+    top: -3px;
+    margin: 0;
+    z-index: 9;
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 3px solid red;
+    border-radius: 50%;
+    animation: borderMove 1s infinite linear both;
+}
+
+@keyframes borderMove{
+    0%{
+        transform:scale(1.2);
+    }
+    
+    100%{
+        transform:scale(0);
+    }
+}
+//phone结束
+
+
+//msg-box开始
+.msg-box{
+    background: #ffffff;
+    font-size: .26rem;
+    
+    transition: .3s;
+    
+    li{
+        position: relative;
+        max-width: 3.6rem;
+        min-width: 2.4rem;
+        margin-bottom: .4rem;
+        padding: .25rem;
+        line-height: .4rem;
+        border-radius: .2rem;
+        list-style: none;
+        
+        transition: 0.3s;
+        opacity: 0;
+        transform: translateY(.1rem);
+    }
+    .avatar{
+        position: absolute;
+        display: block;
+        width: 0.82rem;
+        height: 0.82rem;
+        border-radius: 50%;
+        background: red;
+    }
+    .jiantou{
+        position: absolute;
+        top: .2rem;
+        width: .1rem;
+        height: .2rem;
+        background: khaki;
+    }
+    .student{
+        float: left;
+        margin-left: 1.25rem;
+        background: #FFFFFF;
+        border: .02rem solid #cACACA;
+        .avatar{
+            left: -1rem;
+            top: 0;
+        }
+        .jiantou{
+            left: -.1rem;
+        }
+    }
+    .teacher{
+        float: right;
+        margin-right: 1.25rem;
+        background: #a2E45c;
+        border: .02rem solid #96b474;
+        .avatar{
+            right: -1rem;
+            top: 0;
+        }
+        .jiantou{
+            right: -.1rem;
+        }
+    }  
+    .key{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 5.1rem;
+        width: 100%;
+        background: #cacdC4;
+        transform: .3s;
+        transform: translateY(4.4rem);
+        .input{
+            display: flex;
+            padding-bottom: .1rem;
+            .input-word{ 
+                flex: auto;      
+                padding-left: 0.1rem; 
+                height: .498rem;
+                background: #FFFFFF;
+                color: #222222;
+                line-height: .498rem;
+                border: 1px solid #dddddd;
+            }
+            .send{
+                flex: 0 0 1rem;
+                border-radius: .05rem;
+                text-align: center;
+                line-height: .5rem;
+                height: .5rem;
+                background: green;
+                color: #FFFFFF;
+            }
+        }
+        .key-img{
+            width: 100%;
+            height: 4.5rem;
+            background: url(../img/key.jpg) no-repeat;
+            background-size:100% 4.5rem;
+            background-position-y: -.1rem;
+        }
+    }  
+}
+//msg-box结束
+
+
+//cube-box开始
+.cube-box{
+    .one-slide{
+        background: #ffffcc;
+    }
+}
+//cube-box结束
+
+//detail-box开始
+
+.detail-box{
+    height: 100%;
+    overflow: hidden;
+    .back-one{
+        position: absolute;
+        top: .2rem;
+        right: .2rem;
+        height: 1rem;
+        width: 1rem;
+        background: url(../img/back.png) no-repeat;
+        background-size: 1rem;
+    }
+    .swiper-container,.swiper-slide{
+        height: 100%;
+        overflow: hidden;
+    }
+    .one-slide{
+        perspective: 2000px;
+        .one-dl{
+            background: #82c84f;
+            color: #000;
+            text-align: center;
+            transform-style: preserve-3d;
+            dt{
+                font-size: .4rem;
+                height: .6rem;
+                line-height: .6rem;
+                box-sizing: border-box; 
+                font-size: 0px;     
+            }
+            dd{
+                font-size: .24rem; 
+                margin-left: 0; 
+                border-top: #222222 solid 2px; 
+                height: .6rem;
+                line-height: .6rem; 
+                box-sizing: border-box;
+                display: flex; 
+                em{
+                    position: relative;
+                    z-index: 999;
+                    flex:0 0  .3rem;
+                    height: .3rem;
+                    line-height: .3rem;
+                    margin: .15rem .1rem;
+                    border-radius: 50%;
+                    background: red;
+                    font-style: normal;
+                    color: #FFFFFF;
+                }
+                b{
+                    position: relative;
+                    z-index: 999;
+                    flex: auto;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                }        
+            }
+        }
+    }
+}
+//detail-box结束
